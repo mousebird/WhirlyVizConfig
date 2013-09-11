@@ -1,0 +1,35 @@
+{
+    "background": [
+        {
+            "type": "color",
+            "color": "#82CAFAFF",
+            "_comment": "light sky blue"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
+        }
+    ],
+    "styles": [
+        {
+            "name": "outline_style",
+            "type": "vector",
+            "color": "#000000FF",
+            "width": "3.0"
+        }
+    ],
+    "queries": [
+        {
+            "name": "main_query",
+            "display name": "Country By Location",
+            "style": "outline_style",
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) LIMIT 1"
+        }
+    ],
+    "actions": [
+        {
+            "type": "onTap",
+            "action": "none"
+        }
+        ]
+}

@@ -34,10 +34,6 @@
             "display name": "Country Lookup",
             "style": "outline_style",
             "query": "http://mousebird.github.io/WhirlyVizConfig/data/countries/{country}.geojson"
-        },
-        {
-            "name": "stop_tap_query",
-            "query" : ""
         }
     ],
     "actions": [
