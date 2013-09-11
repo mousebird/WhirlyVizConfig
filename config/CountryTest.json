@@ -10,6 +10,14 @@
             "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
         }
     ],
+    "styles": [
+        {
+            "name": "outline_style",
+            "type": "vector",
+            "color": "#000000FF",
+            "width": "3.0"
+        }
+    ],
     "controls": [
         {
           "name": "country",
@@ -24,6 +32,7 @@
         {
             "name": "main_query",
             "display name": "Country Lookup",
+            "style": "outline_style",
             "query": "http://mousebird.github.io/WhirlyVizConfig/data/countries/{country}.geojson"
         },
         {
