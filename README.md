@@ -1,0 +1,4 @@
+WhirlyVizConfig
+===============
+
+WhirlyViz Configuration Files
