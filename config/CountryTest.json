@@ -8,10 +8,6 @@
         {
             "type": "tilejson",
             "url": "http://a.tiles.mapbox.com/v3/examples.map-zyt2v9k2.json"
-        },
-        {
-            "type": "geojson",
-            "url": "http://isaidbite.me/whatever.geojson"
         }
     ],
     "controls": [
@@ -20,19 +16,15 @@
         	"display name": "Countries",
         	"type": "list",
         	"default": "USA",
-        	"values": [
-        		"USA",
-        		"CAN",
-                       
+        	"values": ["ABW","AFG","AGO","AIA","ALA","ALB","AND","ARE","ARG","ARM","ASM","ATA","ATF","ATG","AUS","AUT","AZE","BDI","BEL","BEN","BES","BFA","BGD","BGR","BHR","BHS","BIH","BLM","BLR","BLZ","BMU","BOL","BRA","BRB","BRN","BTN","BVT","BWA","CAF","CAN","CCK","CHE","CHL","CHN","CIV","CMR","COD","COG","COK","COL","COM","CPV","CRI","CUB","CUW","CXR","CYM","CYP","CZE","DUE","DJI","DMA","DNK","DOM"
         	]
         }
     ],
     "queries": [
         {
             "name": "main_query",
-            "display name": "Bus Stop Query",
-            "alt_query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT * FROM stopinfo where start_date > {start_date} AND end_date < {end_date};",
-            "query": "http://www.turntabulator.com/{country}.geojson"
+            "display name": "Country Lookup",
+            "query": "http://mousebird.github.io/data/countries/{country}.geojson"
         },
         {
             "name": "stop_tap_query",
@@ -43,11 +35,6 @@
         {
             "type": "onTap",
             "action": "none"
-        },
-        {
-            "type": "onSelect",
-            "action": "query",
-            "query": "stop_tap_query"
         },
         {
             "type": "onConfig",
