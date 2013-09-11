@@ -16,7 +16,7 @@
         	"display name": "Countries",
         	"type": "list",
         	"default": "USA",
-        	"values": ["ABW","AFG","AGO","AIA","ALA","ALB","AND","ARE","ARG","ARM","ASM","ATA","ATF","ATG","AUS","AUT","AZE","BDI","BEL","BEN","BES","BFA","BGD","BGR","BHR","BHS","BIH","BLM","BLR","BLZ","BMU","BOL","BRA","BRB","BRN","BTN","BVT","BWA","CAF","CAN","CCK","CHE","CHL","CHN","CIV","CMR","COD","COG","COK","COL","COM","CPV","CRI","CUB","CUW","CXR","CYM","CYP","CZE","DUE","DJI","DMA","DNK","DOM"
+        	"values": ["ABW","AFG","AGO","AIA","ALA","ALB","AND","ARE","ARG","ARM","ASM","ATA","ATF","ATG","AUS","AUT","AZE","BDI","BEL","BEN","BES","BFA","BGD","BGR","BHR","BHS","BIH","BLM","BLR","BLZ","BMU","BOL","BRA","BRB","BRN","BTN","BVT","BWA","CAF","CAN","CCK","CHE","CHL","CHN","CIV","CMR","COD","COG","COK","COL","COM","CPV","CRI","CUB","CUW","CXR","CYM","CYP","CZE","DUE","DJI","DMA","DNK","DOM","USA"
         	]
         }
     ],
@@ -24,7 +24,7 @@
         {
             "name": "main_query",
             "display name": "Country Lookup",
-            "query": "http://mousebird.github.io/data/countries/{country}.geojson"
+            "query": "http://mousebird.github.io/WhirlyVizConfig/data/countries/{country}.geojson"
         },
         {
             "name": "stop_tap_query",
