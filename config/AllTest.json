@@ -16,14 +16,40 @@
     ],
     "controls": [
         {
+            "name": "start_date",
+            "display name": "Start Date",
+            "type": "date",
+            "default": "Aug 1 2012",
+            "min": "Aug 1 2012",
+            "max": "Sep 1 2012"
+        },
+        {
+            "name": "end_date",
+            "display name": "End Date",
+            "type": "date",
+            "default": "Aug 1 2012",
+            "min": "Aug 1 2012",
+            "max": "Sep 1 2012"
+        },
+        {
+            "name": "route",
+            "display name": "Routes",
+            "type": "list",
+            "default": "All",
+            "values": [
+                "1",
+                "10",
+                "11"
+            ]
+        },
+        {
           "name": "country",
         	"display name": "Countries",
         	"type": "list",
         	"default": "USA",
         	"values": [
         		"USA",
-        		"CAN",
-                       
+        		"CAN"
         	]
         }
     ],
