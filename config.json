@@ -1,0 +1,13 @@
+{
+    "configs" :
+    [
+    {
+        "name": "Country By Name",
+        "url" : "http://mousebird.github.io/WhirlyVizConfig/config/CountryTest.json"
+    },
+     {
+     "name": "Country By Tap",
+     "url" : "http://mousebird.github.io/WhirlyVizConfig/config/CountryInteractive.json"
+     }
+    ]
+}
