@@ -1,0 +1,84 @@
+{
+    "background": [
+        {
+            "type": "color",
+            "color": "#82CAFA00",
+            "_comment": "light sky blue"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/examples.map-zyt2v9k2.json"
+        },
+        {
+            "type": "geojson",
+            "url": "http://isaidbite.me/whatever.geojson"
+        }
+    ],
+    "controls": [
+        {
+            "name": "start_date",
+            "display name": "Start Date",
+            "type": "date",
+            "default": "Aug 1 2012",
+            "min": "Aug 1 2012",
+            "max": "Sep 1 2012"
+        },
+        {
+            "name": "end_date",
+            "display name": "End Date",
+            "type": "date",
+            "default": "Aug 1 2012",
+            "min": "Aug 1 2012",
+            "max": "Sep 1 2012"
+        },
+        {
+            "name": "route",
+            "display name": "Routes",
+            "type": "list",
+            "default": "All",
+            "values": [
+                "1",
+                "10",
+                "11"
+            ]
+        },
+        {
+          "name": "country",
+        	"display name": "Countries",
+        	"type": "list",
+        	"default": "USA",
+        	"values": [
+        		"USA",
+        		"CAN"
+        	]
+        }
+    ],
+    "queries": [
+        {
+            "name": "main_query",
+            "display name": "Bus Stop Query",
+            "alt_query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT * FROM stopinfo where start_date > {start_date} AND end_date < {end_date};",
+            "query": "http://www.turntabulator.com/{country}.geojson"
+        },
+        {
+            "name": "stop_tap_query",
+            "query" : ""
+        }
+    ],
+    "actions": [
+        {
+            "type": "onTap",
+            "action": "none"
+        },
+        {
+            "type": "onSelect",
+            "action": "query",
+            "query": "stop_tap_query"
+        },
+        {
+            "type": "onConfig",
+            "action": "query",
+            "query": "main_query"
+        }
+        ]
+}
