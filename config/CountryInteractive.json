@@ -29,7 +29,8 @@
     "actions": [
         {
             "type": "onTap",
-            "action": "none"
+            "action": "query",
+            "query": "main_query"
         }
         ]
 }
