@@ -2,12 +2,12 @@
     "background": [
         {
             "type": "color",
-            "color": "#82CAFA00",
+            "color": "#82CAFAFF",
             "_comment": "light sky blue"
         },
         {
             "type": "tilejson",
-            "url": "http://a.tiles.mapbox.com/v3/examples.map-zyt2v9k2.json"
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
         }
     ],
     "controls": [
