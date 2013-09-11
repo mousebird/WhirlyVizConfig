@@ -2,12 +2,14 @@
     "configs" :
     [
     {
-        "name": "Country By Name",
-        "url" : "http://mousebird.github.io/WhirlyVizConfig/config/CountryTest.json"
+    "name": "Country By Name",
+    "desc": "Select a country outline by name."
+    "url" : "http://mousebird.github.io/WhirlyVizConfig/config/CountryTest.json"
     },
-     {
+    {
      "name": "Country By Tap",
+     "desc": "Tap on a location to see what country it is."
      "url" : "http://mousebird.github.io/WhirlyVizConfig/config/CountryInteractive.json"
-     }
+    }
     ]
 }
