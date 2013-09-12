@@ -14,7 +14,7 @@
         {
             "name": "outline_style",
             "type": "vector",
-            "color": "#000000FF",
+            "color": "#FFFFFFFF",
             "width": 3.0,
             "fade": 0.5
         }
