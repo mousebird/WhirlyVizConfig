@@ -59,7 +59,7 @@
         },
         {
             "name": "data_set_list",
-            "query" : "http://mousebird.cartodb.com/api/v2/sql?q=SELECT id as data_set_id,variable_name as display_name FROM une_data_sets order by id"
+            "query" : "http://mousebird.cartodb.com/api/v2/sql?q=SELECT id as list_value,variable_name as display_name FROM une_data_sets order by id"
         }
     ],
     "actions": [
