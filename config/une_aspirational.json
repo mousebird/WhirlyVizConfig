@@ -73,6 +73,14 @@
              { "var query" : {"query": "max_query", "var": "data_set_max"}},
              { "var query" : {"query": "min_query", "var": "data_set_min"}}
             ]
+        },
+        {
+            "type": "onStartup",
+            "actions":
+            [
+             { "var query" : {"query": "max_query", "var": "data_set_max"}},
+             { "var query" : {"query": "min_query", "var": "data_set_min"}}
+             ]
         }
     ]
 }
