@@ -52,12 +52,10 @@
         {
             "name": "max_query",
             "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MAX(measurement) FROM une_measurements where id = {data_set_id}",
-            "var": "data_set_max"
         },
         {
             "name": "max_query",
             "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MIN(measurement) FROM une_measurements where id = {data_set_id}",
-            "var": "data_set_min"
         },
         {
             "name": "data_set_list",
@@ -74,8 +72,8 @@
             "type": "onConfig",
             "actions":
             [
-             { "query" : "max_query"},
-             { "query" : "min_query"}
+             { "var query" : {"query": "max_query", "var": "data_set_max"}},
+             { "var query" : {"query": "min_query", "var": "data_set_min"}}
             ]
         }
     ]
