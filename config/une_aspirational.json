@@ -34,6 +34,7 @@
              "name": "data_set",
              "display name": "Data Sets",
              "type": "list",
+            "default" : "1",
              "value query": {
                  "type" : "json_list",
                  "query" : "data_set_list"
