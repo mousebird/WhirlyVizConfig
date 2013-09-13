@@ -25,7 +25,8 @@
                {
                  "type": "temperature ramp",
                  "min": "{data_set_min}",
-                 "max": "{data_set_max}"
+                 "max": "{data_set_max}",
+                 "val": "height"
                },
            "fade": 0.5
        }
@@ -35,7 +36,6 @@
              "name": "data_set",
              "display name": "Data Sets",
              "type": "list",
-             "default": "1",
              "value query": {
                  "type" : "json_list",
                  "query" : "data_set_list"
