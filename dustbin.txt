@@ -1,0 +1,5 @@
+           "color ramp":
+               {
+                 "type": "temperature ramp",
+                 "val": "color_scale"
+               },
