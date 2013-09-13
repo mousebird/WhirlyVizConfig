@@ -21,11 +21,7 @@
        {
            "name": "loft_style",
            "type": "loftpoly",
-           "color ramp":
-               {
-                 "type": "temperature ramp",
-                 "val": "color_scale"
-               },
+           "color": "#FF0000FF",
            "fade": 0.5
        }
     ],
