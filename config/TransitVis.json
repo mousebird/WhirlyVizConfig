@@ -1,0 +1,60 @@
+{
+    "background": [
+        {
+            "type": "color",
+            "color": "#82CAFAFF",
+            "_comment": "light sky blue"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
+        }
+    ],
+    "styles": [
+        {
+            "name": "stop_style",
+            "type": "cylinder",
+            "color": "#FF0000FF",
+        }
+    ],
+    "controls": [
+    {
+        "name": "start_date",
+        "display name": "Start Date",
+        "type": "date",
+        "default": "Aug 1 2012",
+        "min": "Aug 1 2012",
+        "max": "Aug 1 2012"
+    },
+     {
+     "name": "end_date",
+     "display name": "End Date",
+     "type": "date",
+     "default": "Aug 1 2012",
+     "min": "Aug 1 2012",
+     "max": "Aug 1 2012"
+     },
+     {
+     "name": "route",
+     "display name": "Routes",
+     "type": "list"
+     "default": "All",
+     "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT distinct route FROM san_francisco order by route"
+     }
+    ]
+    "queries": [
+        {
+            "name": "boarding_query",
+            "display name": "Passengers Boarding",
+            "style": "stop_style",
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) LIMIT 1"
+        }
+    ],
+    "actions": [
+        {
+            "type": "onConfig",
+            "action": "query",
+            "query": "boarding_query"
+        }
+        ]
+}

@@ -1,0 +1,78 @@
+{
+    "background": [
+        {
+            "type": "color",
+            "color": "#82CAFAFF",
+            "_comment": "light sky blue"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
+        }
+    ],
+    "styles": [
+        {
+            "name": "outline_style",
+            "type": "vector",
+            "color": "#FFFFFFFF",
+            "width": 3.0,
+            "fade": 0.5
+        },
+       {
+           "name": "loft_style",
+           "type": "loftpoly",
+           "color ramp":
+               {
+                 "type": "temperature ramp",
+                 "min": "{data_set_min}",
+                 "max": "{data_set_max}"
+               },
+           "fade": 0.5
+       }
+    ],
+    "controls": [
+         {
+             "name": "data_set",
+             "display name": "Data Sets",
+             "type": "list",
+             "default": "1",
+             "value query": {
+                 "type" : "json_list",
+                 "query" : "http://mousebird.cartodb.com/api/v2/sql?q=SELECT id as data_set_id,variable_name as display_name FROM une_data_sets order by id"
+             }
+         }
+    ],
+    "queries": [
+        {
+            "name": "main_query",
+            "display name": "Stats By Country",
+            "styles": ["outline_style","loft_style"],
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT table_10m_admin_0_map_subunits.the_geom,une_measurements.measurement as height FROM table_10m_admin_0_map_subunits inner join une_nations on table_10m_admin_0_map_subunits.adm0_a3 = une_nations.iso3 inner join une_measurements on une_nations.id = une_measurements.nation_id WHERE ST_Intersects(table_10m_admin_0_map_subunits.the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) AND une_measurements.data_set_id = {data_set_id}"
+        },
+        {
+            "name": "max_query",
+            "query": "SELECT MAX(measurement) FROM une_measurements where id = {data_set_id}",
+            "var": "data_set_max"
+        },
+        {
+            "name": "max_query",
+            "query": "SELECT MIN(measurement) FROM une_measurements where id = {data_set_id}",
+            "var": "data_set_min"
+        }
+    ],
+    "actions": [
+        {
+            "type": "onTap",
+            "action": "query",
+            "query": "main_query"
+        },
+        {
+            "type": "onConfig",
+            "actions":
+            [
+             { "query" : "max_query"},
+             { "query" : "min_query"}
+            ]
+        }
+    ]
+}
