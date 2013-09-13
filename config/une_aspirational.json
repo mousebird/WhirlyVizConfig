@@ -34,7 +34,7 @@
              "name": "data_set",
              "display name": "Data Sets",
              "type": "list",
-            "default" : "1",
+             "default" : "1",
              "value query": {
                  "type" : "json_list",
                  "query" : "data_set_list"
@@ -50,11 +50,11 @@
         },
         {
             "name": "max_query",
-            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MAX(measurement) FROM une_measurements where id = {data_set}",
+            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MAX(measurement) FROM une_measurements where id = {data_set}"
         },
         {
             "name": "min_query",
-            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MIN(measurement) FROM une_measurements where id = {data_set}",
+            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT MIN(measurement) FROM une_measurements where id = {data_set}"
         },
         {
             "name": "data_set_list",
