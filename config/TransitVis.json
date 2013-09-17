@@ -8,7 +8,11 @@
         {
             "type": "tilejson",
             "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
-        }
+        },
+       {
+            "type": "geojson",
+            "url": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom FROM sf_bus_routes"
+       }
     ],
     "styles": [
         {
@@ -26,12 +30,12 @@
             "min query":
                  {
                  "type": "value",
-                 "query": ""
+                 "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT MIN(timepullout) FROM sf_passenger_count_view_table"
                  }
             "max query":
                  {
                  "type": "value",
-                 "query": ""
+                 "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT MAX(timepullout) FROM sf_passenger_count_view_table"
                  }
         },
          {
@@ -42,12 +46,12 @@
              "min query":
                  {
                  "type": "value",
-                 "query": ""
+                 "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT MIN(timepullout) FROM sf_passenger_count_view_table"
                  }
              "max query":
                  {
                  "type": "value",
-                 "query": ""
+                 "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT MAX(timepullout) FROM sf_passenger_count_view_table"
                  }
          },
          {
@@ -67,19 +71,15 @@
             "name": "boarding_query",
             "display name": "Passengers Boarding",
             "style": "stop_style",
-            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) LIMIT 1"
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sf_bus_stops.the_geom, SUM(sf_passenger_count_view_table.pass_on) as height, sf_bus_stops.stopid  FROM sf_bus_stops inner join sf_passenger_count_view_table on sf_bus_stops.stopid = sf_passenger_count_view_table.stop_id where sf_passenger_count_view_table.timepullout > {start_date} and sf_passenger_count_view_table.timepullout < {end_date} group by sf_bus_stops.the_geom, sf_bus_stops.stopid"
         },
         {
             "name": "route_list_query",
-            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT distinct route FROM san_francisco order by route"
-        },
-        {
-            "name": "all_stops_query",
-            "query": ""
+            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT distinct route FROM sf_passenger_count_view_table order by route"
         },
         {
             "name": "stop_query",
-            "query": ""
+            "query": "SELECT SUM(pass_on) as 'Passengers Boarding', FROM sf_bus_stops where timepullout > {start_date} and timepullout < {end_date} and stop_id = {stopid}"
         }
     ],
     "actions": [
@@ -87,11 +87,6 @@
             "type": "onConfig",
             "action": "query",
             "query": "boarding_query"
-        },
-        {
-            "type": "onStartup",
-            "action": "query",
-            "query": "all_stops_query"
         },
         {
             "type": "onSelect",
