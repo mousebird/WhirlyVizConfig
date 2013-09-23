@@ -2,7 +2,7 @@
     "settings" :
     {
         "map type": "globe"
-    }
+    },
     "background": [
         {
             "type": "color",
