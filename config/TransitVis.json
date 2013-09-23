@@ -82,7 +82,7 @@
             "query": "SELECT SUM(pass_on) as 'Passengers Boarding', FROM sf_bus_stops where timepullout > {start_date} and timepullout < {end_date} and stop_id = {stopid}"
         }
     ],
-    "actions": [
+    "events": [
         {
             "type": "onConfig",
             "action": "query",

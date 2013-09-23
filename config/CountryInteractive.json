@@ -27,7 +27,7 @@
             "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) LIMIT 1"
         }
     ],
-    "actions": [
+    "events": [
         {
             "type": "onTap",
             "action": "query",

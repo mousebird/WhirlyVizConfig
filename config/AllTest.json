@@ -65,7 +65,7 @@
             "query" : ""
         }
     ],
-    "actions": [
+    "events": [
         {
             "type": "onTap",
             "action": "none"
