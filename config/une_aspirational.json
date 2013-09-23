@@ -61,7 +61,7 @@
             "query" : "http://mousebird.cartodb.com/api/v2/sql?q=SELECT id as list_value,variable_name as display_name FROM une_data_sets order by id"
         }
     ],
-    "actions": [
+    "events": [
         {
             "type": "onTap",
             "action": "query",
