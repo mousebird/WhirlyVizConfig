@@ -32,9 +32,9 @@
        {
             "name": "outline_label",
             "type": "label",
-            "text color": "#FFFFFFFF",
-            "shadow color": "#000000FF",
-            "shadow size": 1.0,
+            "textColor": "#FFFFFFFF",
+            "shadowColor": "#000000FF",
+            "shadowSize": 1.0,
             "fade": 0.5
        }
     ],
