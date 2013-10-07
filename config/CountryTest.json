@@ -39,13 +39,12 @@
     ],
     "events": [
         {
-            "type": "onTap",
-            "action": "none"
-        },
-        {
             "type": "onConfig",
-            "action": "query",
-            "query": "main_query"
+            "actions":
+            [
+                {"type" : "geo query",
+                 "query" : "main_query"}
+        	]
         }
         ]
 }
