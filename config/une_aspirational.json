@@ -35,6 +35,8 @@
             "textColor": "#FFFFFFFF",
             "shadowColor": "#000000FF",
             "shadowSize": 1.0,
+            "textWidth": 500,
+            "textHeight": 120,
             "fade": 0.5
        }
     ],
