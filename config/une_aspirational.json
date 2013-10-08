@@ -56,7 +56,7 @@
             "name": "main_query",
             "display name": "Stats By Country",
             "styles": ["outline_style","outline_label","loft_style"],
-            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT table_10m_admin_0_map_subunits.the_geom,(0.1*(une_measurements.measurement-{data_set_min})/({data_set_max}-{data_set_min})) as height,((une_measurements.measurement-{data_set_min})/({data_set_max}-{data_set_min})) as color_ramp FROM table_10m_admin_0_map_subunits inner join une_nations on table_10m_admin_0_map_subunits.adm0_a3 = une_nations.iso3 inner join une_measurements on une_nations.id = une_measurements.nation_id WHERE ST_Intersects(table_10m_admin_0_map_subunits.the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) AND une_measurements.data_set_id = {data_set}"
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT table_10m_admin_0_map_subunits.the_geom,(0.1*(une_measurements.measurement-{data_set_min})/({data_set_max}-{data_set_min})) as height,((une_measurements.measurement-{data_set_min})/({data_set_max}-{data_set_min})) as color_ramp, table_10m_admin_0_map_subunits.name FROM table_10m_admin_0_map_subunits inner join une_nations on table_10m_admin_0_map_subunits.adm0_a3 = une_nations.iso3 inner join une_measurements on une_nations.id = une_measurements.nation_id WHERE ST_Intersects(table_10m_admin_0_map_subunits.the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) AND une_measurements.data_set_id = {data_set}"
         },
         {
             "name": "max_query",
