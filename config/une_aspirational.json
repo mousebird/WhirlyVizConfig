@@ -2,7 +2,8 @@
     "settings" :
     {
         "map type": "globe",
-        "query limit": 72
+        "query limit": 72,
+        "info page": "
     },
     "background": [
         {
