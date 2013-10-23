@@ -29,7 +29,7 @@
            "name": "loft_style",
            "type": "loftpoly",
             "color ramp":
-            [ "#33CCFF88", "#3399FF88", "#3366CC88", "#3333CC88", "#6633CC88", "#9933FF88", "#FF007F88", "#FF00FF88"],
+            [ "#33CCFF66", "#3399FF66", "#3366CC88", "#3333CC66", "#6633CC88", "#9933FF88", "#FF007F88", "#FF00FF88"],
            "fade": 0.5
        },
        {
@@ -45,7 +45,7 @@
     "controls": [
          {
              "name": "data_set",
-             "display name": "Data Sets",
+             "display name": "Data Set",
              "type": "list",
              "default" : "28",
              "initial index" : 12,
@@ -114,7 +114,7 @@
                   "var": "data_set_units"},
                 { "type": "query clear"},
                 { "type": "display",
-                  "text": "{data_set}"}
+                  "text": "{{data_set}}"}
              ]
         },
         {
