@@ -5,7 +5,7 @@
             "display name": "United Nations Environment Programme Data Sets",
             "description": "A simplified view of several UNEP data sets related to countries.",
             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.config"
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.json"
         }
     ]
 }
