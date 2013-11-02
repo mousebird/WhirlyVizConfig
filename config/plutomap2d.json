@@ -1,0 +1,93 @@
+{
+    "settings" :
+    {
+        "map type": "map2d",
+        "extents": {
+            "minlon": -74.37,
+            "minlat": 40.34,
+            "maxlon": -73.61,
+            "maxlat": 41.01,
+            "minheight": 0.0001,
+            "maxheight": 0.005
+        },
+        "start": {
+            "lon": -73.99,
+            "lat": 40.75,
+            "rot": -28.764,
+            "height": 0.003
+        },
+        "info url": "http://mousebird.github.io/WhirlyVizConfig/pluto/plutoinfo.html"
+    },
+    "background": [
+        {
+            "type": "color",
+            "color": "#FFFFFFFF"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-icbeeevu.json",
+            "minzoom": 0,
+            "maxzoom": 18
+        }
+    ],
+    "styles": [
+        {
+            "name": "building_style",
+            "type": "vector",
+            "filled": false,
+            "color": "#37047066",
+            "width": 5.0,
+            "fade": 0.5
+        }
+    ],
+    "controls": [
+    ],
+    "queries": [
+        {
+            "name": "building_query",
+            "display name": "PLUTO Buildings",
+            "styles": ["building_style"],
+                "query": "https://pluto.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,address,ownername FROM bx_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM mn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM bk_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM qn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM si_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) LIMIT 1000"
+        }
+    ],
+    "query layers": [
+        {
+            "name": "building layer",
+            "cache": true,
+            "coordinate system": "EPSG:3857",
+            "minzoom": 16,
+            "maxzoom": 16
+        }
+    ],
+    "events": [
+        {
+            "type": "onSelect",
+            "actions":
+            [
+                { "type" : "clear popups"},
+                { "type" : "add popup",
+                  "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{address}}</b><br>{{ownername}}</body></html>"}
+            ]
+        },
+        {
+            "type": "onTap",
+            "actions":
+            [
+             { "type" : "clear popups"}
+            ]
+        },
+        {
+            "type": "onStartup",
+            "actions":
+            [
+             { "type": "layer query",
+                "layer": "building layer",
+                "query": "building_query"
+             },
+             { "type": "display",
+               "text": "PLUTO"
+             }
+             ]
+        }
+    ]
+}

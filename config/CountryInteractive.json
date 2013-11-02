@@ -1,4 +1,10 @@
 {
+    "settings" :
+    {
+        "map type": "globe",
+        "query limit": 72,
+        "info url": "http://mousebird.github.io/WhirlyVizConfig/config/countryinteractive.html"
+    },
     "background": [
         {
             "type": "color",
@@ -7,31 +13,78 @@
         },
         {
             "type": "tilejson",
-            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json"
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json",
+	    "maxzoom": 6
         }
     ],
     "styles": [
         {
-            "name": "outline_style",
+            "name": "country_outline",
             "type": "vector",
             "color": "#FFFFFFFF",
             "width": 3.0,
+            "fade": 0.5,
+            "minVis": 0.7,
+            "maxVis": 10.0
+        },
+       {
+            "name": "country_label",
+            "type": "label",
+            "pick": "firstloop",
+            "textColor": "#FFFFFFFF",
+            "outlineColor": "#000000FF",
+            "outlineSize": 1.5,
+            "textHeight": 24.0,
+            "minVis": 0.7,
+            "maxVis": 10.0,
+            "fade": 0.5
+       },
+        {
+            "name": "province_outline",
+            "type": "vector",
+            "color": "#DDDDDDFF",
+            "width": 3.0,
+            "fade": 0.5,
+            "minVis": 0.0,
+            "maxVis": 0.7
+        },
+        {
+            "name": "province_label",
+            "type": "label",
+            "pick": "allloops",
+            "textColor": "#DDDDDDFF",
+            "outlineColor": "#000000FF",
+            "outlineSize": 1.5,
+            "textHeight": 24.0,
+            "minVis": 0.0,
+            "maxVis": 0.7,
             "fade": 0.5
         }
     ],
     "queries": [
         {
-            "name": "main_query",
+            "name": "country_query",
             "display name": "Country By Location",
-            "style": "outline_style",
-            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({taplon},{taplat}),4326)) LIMIT 1"
+            "styles": ["country_outline","country_label"],
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT sovereignt,name,adm0_a3,the_geom FROM table_10m_admin_0_map_subunits WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326))"
+        },
+        {
+            "name": "province_query",
+            "display name": "States and Provinces",
+            "styles": ["province_outline","province_label"],
+                "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT table_10m_admin_1_states_provinces_shp.name_1 as name,table_10m_admin_1_states_provinces_shp.the_geom FROM table_10m_admin_0_map_subunits inner join table_10m_admin_1_states_provinces_shp on table_10m_admin_0_map_subunits.adm0_a3 = table_10m_admin_1_states_provinces_shp.adm0_a3 WHERE ST_Intersects(table_10m_admin_0_map_subunits.the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326))"
         }
     ],
     "events": [
         {
             "type": "onTap",
-            "action": "query",
-            "query": "main_query"
+            "actions": [
+                { "type" : "clear popups"},
+                { "type" : "geo query",
+                  "query" : "country_query"},
+                { "type" : "geo query",
+                  "query" : "province_query"}
+               ]
         }
         ]
 }
