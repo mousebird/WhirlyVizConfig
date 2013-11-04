@@ -85,7 +85,7 @@
                 "query": "building_query"
              },
              { "type": "display",
-               "text": "PLUTO"
+               "text": "New York Lot Data"
              }
              ]
         }

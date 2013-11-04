@@ -14,7 +14,7 @@
         {
             "type": "tilejson",
             "url": "http://a.tiles.mapbox.com/v3/mousebird.map-2ebn78d1.json",
-	    "maxzoom": 6
+            "maxzoom": 6
         }
     ],
     "styles": [
@@ -42,7 +42,7 @@
         {
             "name": "province_outline",
             "type": "vector",
-            "color": "#DDDDDDFF",
+            "color": "#111111FF",
             "width": 3.0,
             "fade": 0.5,
             "minVis": 0.0,
@@ -52,10 +52,10 @@
             "name": "province_label",
             "type": "label",
             "pick": "allloops",
-            "textColor": "#DDDDDDFF",
-            "outlineColor": "#000000FF",
+            "textColor": "#222222FF",
+            "outlineColor": "#FFFFFFFF",
             "outlineSize": 1.5,
-            "textHeight": 24.0,
+            "textHeight": 18.0,
             "minVis": 0.0,
             "maxVis": 0.7,
             "fade": 0.5
@@ -80,8 +80,6 @@
             "type": "onTap",
             "actions": [
                 { "type" : "clear popups"},
-                { "type" : "geo query",
-                  "query" : "country_query"},
                 { "type" : "geo query",
                   "query" : "province_query"}
                ]
