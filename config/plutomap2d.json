@@ -7,7 +7,7 @@
             "minlat": 40.34,
             "maxlon": -73.61,
             "maxlat": 41.01,
-            "minheight": 0.0001,
+            "minheight": 0.00005,
             "maxheight": 0.005
         },
         "start": {
