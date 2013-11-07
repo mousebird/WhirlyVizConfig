@@ -7,12 +7,6 @@
             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.png",
             "config url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.json"
         },
-        {   "name": "countryinteractive",
-            "display name": "Countries and States/Provinces",
-            "description": "All countries and their provinces from Natural Earth.",
-            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/CountryInteractive.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config/CountryInteractive.json"
-        },
         {   "name": "plutomap2d",
             "display name": "Primary Land Use Tax Lot Output",
             "description": "PLUTO data for all five boroughs of New York.",
