@@ -7,7 +7,7 @@
             "minlat": 40.34,
             "maxlon": -73.61,
             "maxlat": 41.01,
-            "minheight": 0.00005,
+            "minheight": 0.00003,
             "maxheight": 0.005
         },
         "start": {
@@ -37,7 +37,29 @@
             "filled": false,
             "color": "#37047066",
             "width": 5.0,
+            "drawPriority": 1000,
             "fade": 0.5
+        },
+        {
+           "name": "filled_style",
+           "type": "vector",
+           "filled": true,
+           "color": "#37047066",
+            "drawPriority": 1001,
+               "minVis": 0,
+               "maxVis": 0.0003,
+           "fade": 0.2
+        },
+        {
+            "name": "outline_style",
+            "type": "vector",
+            "filled": false,
+            "width": 8.0,
+            "color": "#FFFFFFFF",
+            "drawPriority": 1002,
+               "minVis": 0,
+               "maxVis": 0.0003,
+            "fade": 0.2
         }
     ],
     "controls": [
@@ -48,7 +70,14 @@
             "display name": "PLUTO Buildings",
             "styles": ["building_style"],
                 "query": "https://pluto.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,address,ownername FROM bx_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM mn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM bk_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM qn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM si_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) LIMIT 1000"
+        },
+        {
+        "name": "point_query",
+        "display name": "Building Lookup",
+        "styles": ["filled_style","outline_style"],
+        "query": "https://pluto.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,address,ownername FROM bx_mappluto_13v1 WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326)) UNION SELECT the_geom,address,ownername FROM mn_mappluto_13v1 WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326)) UNION SELECT the_geom,address,ownername FROM bk_mappluto_13v1 WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326)) UNION SELECT the_geom,address,ownername FROM qn_mappluto_13v1 WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326)) UNION SELECT the_geom,address,ownername FROM si_mappluto_13v1 WHERE ST_Intersects(the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326)) LIMIT 1"
         }
+
     ],
     "query layers": [
         {
@@ -64,17 +93,19 @@
             "type": "onSelect",
             "actions":
             [
-                { "type" : "clear popups"},
-                { "type" : "add popup",
-                  "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{address}}</b><br>{{ownername}}</body></html>"}
+             { "type" : "clear popups"},
+             { "type" : "query clear"},
+             { "type" : "geo query",
+               "query" : "point_query"},
+             { "type" : "add popup",
+               "minVis": 0,
+               "maxVis": 0.0003,
+               "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{address}}</b><br>{{ownername}}</body></html>"}
             ]
         },
         {
             "type": "onTap",
-            "actions":
-            [
-             { "type" : "clear popups"}
-            ]
+            "actions": [ { "type" : "clear popups"}, { "type" : "query clear"} ]
         },
         {
             "type": "onStartup",
