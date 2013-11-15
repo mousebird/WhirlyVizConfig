@@ -14,7 +14,7 @@
             "lon": -73.99,
             "lat": 40.75,
             "rot": -28.764,
-            "height": 0.003
+            "height": 0.0003
         },
         "info url": "http://mousebird.github.io/WhirlyVizConfig/pluto/plutoinfo.html"
     },
@@ -35,7 +35,8 @@
             "name": "building_style",
             "type": "vector",
             "filled": false,
-            "color": "#37047066",
+            "color ramp":
+               [ "#33CCFF66", "#3399FF66", "#3366CC88", "#3333CC66", "#6633CC88", "#9933FF88", "#FF007F88", "#FF00FF88"],
             "width": 5.0,
             "drawPriority": 1000,
             "fade": 0.5
@@ -69,7 +70,7 @@
             "name": "building_query",
             "display name": "PLUTO Buildings",
             "styles": ["building_style"],
-                "query": "https://pluto.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,address,ownername FROM bx_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM mn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM bk_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM qn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername FROM si_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) LIMIT 1000"
+                "query": "https://pluto.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom,address,ownername,(numfloors/20.0) as color_ramp,numfloors FROM bx_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername,(numfloors/20.0),numfloors as color_ramp FROM mn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername,(numfloors/20.0),numfloors as color_ramp FROM bk_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername,(numfloors/20.0),numfloors as color_ramp FROM qn_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) UNION SELECT the_geom,address,ownername,(numfloors/20.0),numfloors as color_ramp FROM si_mappluto_13v1 WHERE the_geom %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326) LIMIT 1000"
         },
         {
         "name": "point_query",
@@ -99,8 +100,8 @@
                "query" : "point_query"},
              { "type" : "add popup",
                "minVis": 0,
-               "maxVis": 0.0003,
-               "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{address}}</b><br>{{ownername}}</body></html>"}
+               "maxVis": 0.0004,
+               "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{address}}</b><br>{{ownername}}<br>Floors: {{numfloors}}</body></html>"}
             ]
         },
         {
