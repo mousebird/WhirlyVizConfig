@@ -3,6 +3,11 @@
     {
         "map type": "globe",
         "query limit": 72,
+        "start": {
+            "lon": 31.233333,
+            "lat": 30.05,
+            "height": 1.0
+        },
         "info url": "http://mousebird.github.io/WhirlyVizConfig/une/uneinfo.html"
     },
     "background": [
