@@ -4,20 +4,20 @@
         {   "name": "unep",
             "display name": "United Nations Environment Programme Data Sets",
             "description": "A simplified view of several UNEP data sets related to countries.",
-            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config/unep.json"
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.png",
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.json"
         },
         {   "name": "plutomap2d",
             "display name": "Primary Land Use Tax Lot Output",
             "description": "PLUTO data for all five boroughs of New York.",
-            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/plutomap2d.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config/plutomap2d.json"
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/plutomap2d.png",
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/plutomap2d.json"
         },
          {   "name": "SFTransit",
              "display name": "San Francisco Transit Data",
              "description": "A data set covering a week of SF buses.",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config/sftransit.png",
-             "config url": "http://mousebird.github.io/WhirlyVizConfig/config/sftransit.json"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.json"
          }
     ]
 }
