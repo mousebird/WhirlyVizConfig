@@ -18,6 +18,12 @@
              "description": "A data set covering a week of SF buses.",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.png",
              "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.json"
+         },
+         {   "name": "ElectionMap",
+             "display name": "Presidential Elections",
+             "description": "Presidential Election by County: 1980-2008",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.json"
          }
     ]
 }
