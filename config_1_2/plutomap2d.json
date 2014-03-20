@@ -84,6 +84,7 @@
     ],
     "query layers": [
         {
+            "type": "vector",
             "name": "building layer",
             "cache": true,
             "coordinate system": "EPSG:3857",
