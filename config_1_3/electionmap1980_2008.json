@@ -1,0 +1,151 @@
+{
+    "settings" :
+    {
+        "map type": "map2d",
+        "start": {
+            "lon": -82.1340,
+            "lat": 39.7260,
+            "height": 0.5
+        },
+        "info url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.html"
+    },
+    "background": [
+        {
+            "type": "color",
+            "color": "#FFFFFFFF"
+        },
+        {
+            "type": "tilejson",
+            "url": "http://a.tiles.mapbox.com/v3/mousebird.map-icbeeevu.json",
+            "minzoom": 0,
+            "maxzoom": 10
+        }
+    ],
+    "styles": [
+        {
+            "name": "filled_style",
+            "type": "vector",
+            "filled": true,
+            "color": "#33CCFF66",
+            "width": 5.0,
+            "drawPriority": 1000,
+            "fade": 0.5,
+            "selectable": true
+        },
+        {
+            "name": "outline_style",
+            "type": "vector",
+            "filled": false,
+            "width": 4.0,
+            "color": "#000000FF",
+            "drawPriority": 1002,
+            "fade": 0.2,
+            "selectable": true
+        },
+       {
+           "name": "select_outline_style",
+           "type": "vector",
+           "filled": false,
+           "width": 4.0,
+           "color": "#AAAAAAAA",
+           "drawPriority": 1003,
+           "fade": 0.1,
+            "minVis": 0,
+            "maxVis": 0.4,
+           "selectable": false
+       }
+    ],
+    "controls": [
+        {
+            "name": "year",
+            "display name": "Election Year",
+            "type": "list",
+            "default": "180",
+            "initial index": 0,
+            "value query": "election_year_query"
+        }
+    ],
+    "queries": [
+        {
+            "name": "county_query",
+            "display name": "US Counties",
+            "type": "geojson",
+            "styles": ["filled_style"],
+                "query": "https://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT uscounties.name as county, uscounties.state_name as state, uscounties.the_geom,census_election_county.ele030{{year}}d as republican,census_election_county.ele020{{year}}d as democrat,census_election_county.ele060{{year}}d as independent, (census_election_county.ele030{{year}}d)/(census_election_county.ele030{{year}}d+census_election_county.ele020{{year}}d+census_election_county.ele060{{year}}d+1) as red, (census_election_county.ele060{{year}}d)/(census_election_county.ele030{{year}}d+census_election_county.ele020{{year}}d+census_election_county.ele060{{year}}d+1) as green, (census_election_county.ele020{{year}}d)/(census_election_county.ele030{{year}}d+census_election_county.ele020{{year}}d+census_election_county.ele060{{year}}d+1) as blue, 0.8 as alpha FROM uscounties inner join census_election_county on uscounties.fips = census_election_county.stcou WHERE ST_Centroid(uscounties.the_geom) %26%26 ST_SetSRID(ST_MakeBox2D(ST_Point({{xmin}}, {{ymin}}), ST_Point({{xmax}}, {{ymax}})), 4326)"
+        },
+        {
+            "name": "select_county_query",
+            "display name": "Select county",
+            "type": "geojson",
+            "styles": ["select_outline_style"],
+            "query": "http://mousebird.cartodb.com/api/v2/sql?format=GeoJSON&q=SELECT the_geom from uscounties where ST_Intersects(uscounties.the_geom,ST_SetSRID(ST_Point({{taplon}},{{taplat}}),4326))"
+        },
+        {
+            "name": "election_year_query",
+            "display name": "Election Years",
+            "type": "cartodb list",
+            "query": "http://mousebird.cartodb.com/api/v2/sql?q=SELECT distinct year_id as list_value, year as display_name FROM census_election_metatable order by year_id"
+        }
+    ],
+    "query layers": [
+        {
+            "type": "vector",
+            "name": "county layer",
+            "cache": true,
+            "coordinate system": "EPSG:3857",
+            "minzoom": 5,
+            "maxzoom": 5
+        }
+    ],
+    "events": [
+        {
+            "type": "onSelect",
+            "actions":
+            [
+             { "type" : "clear popups"},
+             { "type" : "query clear"},
+             { "type" : "geo query",
+               "query" : "select_county_query"},
+             { "type" : "add popup",
+             "minVis": 0,
+             "maxVis": 0.4,
+             "text" : "<html><body style=\"color:white;font-size:18;text-align:center;\"><b>{{county}}, {{state}}</b><br><b style=\"color:#6FCBF5\">Democrat: {{democrat}}</b><br><b style=\"color:#F56F6F\">Republican: {{republican}}<br><b style=\"color:#6FF5CB\">Independent: {{independent}}</b></body></html>"}
+            ]
+        },
+        {
+            "type": "onTap",
+            "actions": [ { "type" : "clear popups"}, { "type" : "query clear"} ]
+        },
+        {
+        "type": "onStartup",
+        "actions":
+        [
+         { "type": "layer query",
+            "layer": "county layer",
+            "query": "county_query"
+         },
+         { "type": "set display",
+           "text": "Presidential Elections by County"
+         },
+         { "type" : "set legend",
+         "text" : "<html><body  style=\"black;font-size:18;text-align:center;\"><b>Election year 1980</body></html>"
+         }
+         ]
+        },
+       {
+       "type": "onConfig",
+       "actions":
+       [
+        { "type" : "query clear" },
+        { "type" : "clear popups"},
+        { "type": "layer query",
+            "layer": "county layer",
+            "query": "county_query"
+        },
+        { "type" : "set legend",
+        "text" : "<html><body  style=\"black;font-size:18;text-align:center;\"><b>Election year {{year}}</body></html>"
+        }
+        ]
+       }
+    ]
+}

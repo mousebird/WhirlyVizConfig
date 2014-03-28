@@ -1,0 +1,29 @@
+{
+    "configs":
+    [
+        {   "name": "unep",
+            "display name": "United Nations Environment Programme Data Sets",
+            "description": "A simplified view of several UNEP data sets related to countries.",
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.png",
+            "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.js"
+        },
+        {   "name": "plutomap2d",
+            "display name": "Primary Land Use Tax Lot Output",
+            "description": "PLUTO data for all five boroughs of New York.",
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/plutomap2d.png",
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/plutomap2d.json"
+        },
+         {   "name": "SFTransit",
+             "display name": "San Francisco Transit Data",
+             "description": "A data set covering a week of SF buses.",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/sftransit.json"
+         },
+         {   "name": "ElectionMap",
+             "display name": "Presidential Elections",
+             "description": "Presidential Election by County: 1980-2008",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.json"
+         }
+    ]
+}
