@@ -1,0 +1,27 @@
+{
+    "settings":{
+        "map type":"map2d",
+        "start":{
+            "lon":-75.20,
+            "lat":40.02,
+            "height":0.25
+        },
+        "info url":""
+    },
+    "background":[
+                  ],
+    "controls":[
+                ],
+    "queries":[
+    ],
+    "styles": [
+    ],
+    "query layers":[
+                    ],
+    "script":{
+        "name":"Main script",
+        "file":"geotrellis_transit"
+    },
+    "events":[
+              ]
+}

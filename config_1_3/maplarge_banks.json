@@ -1,0 +1,144 @@
+{
+    "settings":{
+        "map type":"map2d",
+        "start":{
+            "lon":-82.1340,
+            "lat":39.7260,
+            "height":0.5
+        },
+        "info url":""
+    },
+    "background":[
+                  {
+                  "type":"color",
+                  "color":"#FFFFFFFF"
+                  },
+                  {
+                  "type":"tilejson",
+                  "url":"http://a.tiles.mapbox.com/v3/mousebird.hif7i06e.json",
+                  "minzoom":0,
+                  "maxzoom":10
+                  }
+                  ],
+    "styles":[
+              {
+              "name":"filled_style",
+              "type":"vector",
+              "filled":true,
+              "color":"#33CCFF66",
+              "width":5.0,
+              "drawPriority":1000,
+              "fade":0.5,
+              "selectable":true
+              },
+              {
+              "name":"outline_style",
+              "type":"vector",
+              "filled":false,
+              "width":4.0,
+              "color":"#000000FF",
+              "drawPriority":1002,
+              "fade":0.2,
+              "selectable":true
+              },
+              {
+              "name":"select_outline_style",
+              "type":"vector",
+              "filled":false,
+              "width":4.0,
+              "color":"#AAAAAAAA",
+              "drawPriority":1003,
+              "fade":0.1,
+              "minVis":0,
+              "maxVis":0.4,
+              "selectable":false
+              }
+              ],
+    "controls":[
+                {
+                "name":"wviz_deposit_score",
+                "display name":"Deposit Score",
+                "type":"list",
+                "default":"depDiff3",
+                "initial index":0,
+                "values":[
+                          "depDiff3",
+                          "depDiff5"
+                          ]
+                },
+                {
+                "name":"wviz_spatial_group",
+                "display name":"Spatial Groups",
+                "type":"list",
+                "default":"County",
+                "initial index":1,
+                "values":[
+                          "States2010",
+                          "Counties",
+                          "zip2010"
+                          ]
+                }
+                ],
+    "queries":[
+    ],
+    "query layers":[
+                    {
+                    "name":"bank layer",
+                    "type":"image",
+                    "cache":true,
+                    "flipy":false,
+                    "coordinate system":"EPSG:3857",
+                    "minzoom":0,
+                    "maxzoom":10
+                    }
+                    ],
+    "script":{
+        "name":"Main script",
+        "file":"bank_script"
+    },
+    "events":[
+              {
+              "type":"onSelect",
+              "actions":[
+                         {
+                         "type":"clear popups"
+                         },
+                         {
+                         "type":"query clear"
+                         }
+                         ]
+              },
+              {
+              "type":"onTap",
+              "actions":[
+                         {"type":"clear popups"},
+                         {"type":"query clear"},
+                         {"type":"geo query",  "query function": "tap_query"}
+                         ]
+              },
+              {
+              "type":"onStartup",
+              "actions":[
+                         {
+                         "type":"layer query",
+                         "layer":"bank layer",
+                         "query function":"tileurl"
+                         },
+                         {
+                         "type":"set display",
+                         "text":"MapLarge bank example"
+                         }
+                         ]
+              },
+              {
+              "type":"onConfig",
+              "actions":[
+                         {
+                         "type":"layer query",
+                         "layer":"bank layer",
+                         "query function":"tileurl"
+                         }
+                         ]
+              }
+              ]
+}
