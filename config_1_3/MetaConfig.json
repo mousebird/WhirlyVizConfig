@@ -1,6 +1,12 @@
 {
     "configs":
     [
+         {   "name": "GeoTrellisTransit",
+         "display name": "GeoTrellis Transit",
+         "description": "GeoTrellis Transit Example for Philadelphia",
+         "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.png",
+         "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.js"
+         },
         {   "name": "unep",
             "display name": "United Nations Environment Programme Data Sets",
             "description": "A simplified view of several UNEP data sets related to countries.",
@@ -30,12 +36,6 @@
              "description": "Bank Deposits by Distance",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.js"
-         },
-         {   "name": "GeoTrellisTransit",
-             "display name": "GeoTrellis Transit",
-             "description": "GeoTrellis Transit Example for Philadelphia",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.png",
-             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.js"
          }
     ]
 }
