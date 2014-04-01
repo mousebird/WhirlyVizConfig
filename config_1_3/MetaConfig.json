@@ -5,7 +5,7 @@
             "display name": "United Nations Environment Programme Data Sets",
             "description": "A simplified view of several UNEP data sets related to countries.",
             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.png",
-            "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.js"
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/unep.json"
         },
         {   "name": "plutomap2d",
             "display name": "Primary Land Use Tax Lot Output",

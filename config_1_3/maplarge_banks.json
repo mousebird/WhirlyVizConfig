@@ -80,13 +80,13 @@
                 }
                 ],
     "queries":[
-    
     ],
     "query layers":[
                     {
                     "name":"bank layer",
                     "type":"image",
                     "cache":true,
+                    "flipy":false,
                     "coordinate system":"EPSG:3857",
                     "minzoom":0,
                     "maxzoom":10
@@ -111,12 +111,9 @@
               {
               "type":"onTap",
               "actions":[
-                         {
-                         "type":"clear popups"
-                         },
-                         {
-                         "type":"query clear"
-                         }
+                         {"type":"clear popups"},
+                         {"type":"query clear"},
+                         {"type":"geo query",  "query function": "tap_query"}
                          ]
               },
               {
