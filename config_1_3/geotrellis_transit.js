@@ -81,11 +81,16 @@ wviz.events.onStartup = function()
     // Background color
     wviz.setBackgroundColor("#FFFFFFFF");
     
+    // Name up top
+    wviz.setTitle("GeoTrellis Transit: Philadelphia");
+    
+    // Legend on the lower left
+    wviz.setLegend("<html><body style=\"background-color=black;font-size:18;text-align:center;\"><b style=\"color:#F48380\">0m</b> <b style=\"color:#FAB282\">10m</b> <b style=\"color:#FDDF84\">15m</b> <b style=\"color:#DCF288\">20m</b> <b style=\"color:#B6F2AE\">30m</b> <b style=\"color:#98FEE6\">40m</b> <b style=\"color:#83D9FD\">50m</b></body></html>","#000000AA");
+
     // Background layer with a map
     backLayer = wviz.addImageTileLayer(
         {
-           type: "tilejson",
-           tileURL: "http://a.tiles.mapbox.com/v3/azavea.map-zbompf85.json",
+           tileJson: "http://a.tiles.mapbox.com/v3/azavea.map-zbompf85.json",
            minZoom: 0,
            maxZoom: 22,
            drawPriority: 0
@@ -182,5 +187,5 @@ wviz.settings = {
     "info url":""
 };
 
-// Let the startup know we're happy(ish)
+// Let the startup routine know we're happy
 true;
