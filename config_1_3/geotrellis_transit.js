@@ -46,8 +46,6 @@ var resetTransLayer = function()
     if (transLayer)
         transLayer.remove();
     
-    console.log("Layer reset");
-    
     // Transportation overly with an active tile URL callback
     transLayer = wviz.addImageTileLayer(
                                         {
