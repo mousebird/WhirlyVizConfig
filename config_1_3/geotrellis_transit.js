@@ -46,6 +46,8 @@ var resetTransLayer = function()
     if (transLayer)
         transLayer.remove();
     
+    console.log("Layer reset");
+    
     // Transportation overly with an active tile URL callback
     transLayer = wviz.addImageTileLayer(
                                         {
@@ -56,6 +58,7 @@ var resetTransLayer = function()
                                         minZoom: 10,
                                         maxZoom: 20,
                                         drawPriority: 10,
+                                        alpha: 0.75,
                                         tileURLFunc: tileurl
                                         });
 }
@@ -109,6 +112,34 @@ wviz.events.onStartup = function()
                       "Bike"
                       ]
         });
+    
+    // Regional rail
+    wviz.addControl(
+                    {
+                    name: "regionalRail",
+                    "display name": "Regional rail",
+                    type: "list",
+                    "default": "No",
+                    "initial index": 0,
+                    "values":[
+                              "No",
+                              "Yes"
+                              ]
+                    });
+
+    // Bus & Subway
+    wviz.addControl(
+                    {
+                    name: "busSubway",
+                    "display name": "Bus & Subway",
+                    type: "list",
+                    "default": "No",
+                    "initial index": 0,
+                    "values":[
+                              "No",
+                              "Yes"
+                              ]
+                    });
 
     // Day of week or weekend control
     wviz.addControl(
@@ -156,17 +187,33 @@ wviz.events.onConfig = function()
             transitInfo.mode = "biking";
             break;
     }
+    switch (wviz.env.busSubway)
+    {
+        case "No":
+            break;
+        case "Yes":
+            transitInfo.mode += ",bus";
+            break;
+    }
+    switch (wviz.env.regionalRail)
+    {
+        case "No":
+            break;
+        case "Yes":
+            transitInfo.mode += ",train";
+            break;
+    }
     transitInfo.date = null;
     switch (wviz.env.Date)
     {
         case "Weekday":
-            transitInfo.date = "Weekday";
+            transitInfo.date = "weekday";
             break;
         case "Saturday":
-            transitInfo.date = "Saturday";
+            transitInfo.date = "saturday";
             break;
         case "Sunday":
-            transitInfo.date = "Sunday";
+            transitInfo.date = "sunday";
             break;
     }
     vals = wviz.env.Time.split(":");

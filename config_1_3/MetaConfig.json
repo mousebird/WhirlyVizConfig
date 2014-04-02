@@ -2,10 +2,10 @@
     "configs":
     [
          {   "name": "GeoTrellisTransit",
-         "display name": "GeoTrellis Transit",
-         "description": "GeoTrellis Transit Example for Philadelphia",
-         "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.png",
-         "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.js"
+             "display name": "GeoTrellis Transit",
+             "description": "GeoTrellis Transit Example for Philadelphia",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.js"
          },
         {   "name": "unep",
             "display name": "United Nations Environment Programme Data Sets",
@@ -36,6 +36,12 @@
              "description": "Bank Deposits by Distance",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.js"
+         },
+         {   "name": "BrazilSauPaolo",
+             "display name": "Sau Paulo, Brazil",
+             "description": "A map of the Sau Paulo area in vectors.",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sau_paulo.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sau_paulo_web.json"
          }
     ]
 }
