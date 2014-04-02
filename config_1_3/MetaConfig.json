@@ -37,11 +37,11 @@
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.js"
          },
-         {   "name": "BrazilSauPaolo",
-             "display name": "Sau Paulo, Brazil",
+         {   "name": "BrazilSauoPaolo",
+             "display name": "Sao Paulo, Brazil",
              "description": "A map of the Sau Paulo area in vectors.",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sau_paulo.png",
-             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sau_paulo_web.json"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo_web.json"
          }
     ]
 }
