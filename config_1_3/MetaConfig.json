@@ -31,13 +31,19 @@
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/electionmap1980_2008.png",
              "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/electionmap1980_2008.json"
          },
+         {   "name": "BayAreaBikeShare",
+             "display name": "SF BayArea BikeShare",
+             "description": "Live Bay Area Bike Share Availability",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.js"
+         },
          {   "name": "MapLargeBank",
              "display name": "Bank Deposits",
              "description": "Bank Deposits by Distance",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.js"
          },
-         {   "name": "BrazilSauoPaolo",
+         {   "name": "BrazilSaoPaulo",
              "display name": "Sao Paulo, Brazil",
              "description": "A map of the Sau Paulo area in vectors.",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo.png",
