@@ -4,7 +4,10 @@
 // We just return the URL
 var tileurl = function(x,y,level)
 {
-    return "http://0api.maplarge.com/Tile/Tile?layer=geo~poly~" + wviz.env.spatialGroup + "|data~BankDeposits2010V2~" + wviz.env.depositScore + "~avg&x=" + x + "&y=" + y + "&z=" + level + "&filter=_MANY_BankDeposits2010V2~reportedsod2011~Greater~0&shader=method~interval|colors~Maroon-200/DarkRed-200,DarkRed-200/Red-128,Red-128/White-128,White-128/Blue-128,Blue-128/DarkBlue-200,DarkBlue-128/Navy-220|ranges~-100/-50,-50/-25,-25/0,0/25,25/50,50/100|count~300";
+    url = "http://0api.maplarge.com/Tile/Tile?layer=geo~poly~" + wviz.env.spatialGroup + "|data~BankDeposits2010V2~" + wviz.env.depositScore + "~avg&x=" + x + "&y=" + y + "&z=" + level + "&filter=_MANY_BankDeposits2010V2~reportedsod2011~Greater~0&shader=method~interval|colors~Maroon-200/DarkRed-200,DarkRed-200/Red-128,Red-128/White-128,White-128/Blue-128,Blue-128/DarkBlue-200,DarkBlue-128/Navy-220|ranges~-100/-50,-50/-25,-25/0,0/25,25/50,50/100|count~300";
+    
+    console.log("url = " + url);
+    return url;
 }
 
 // Overlay layer for the bank data
@@ -23,6 +26,7 @@ var resetBankLayer = function()
                                         name: "bank layer",
                                         cache: true,
                                         flipy: false,
+                                       alpha: 1.0,
                                         coordSys: "EPSG:3857",
                                         minZoom: 0,
                                         maxZoom: 10,
