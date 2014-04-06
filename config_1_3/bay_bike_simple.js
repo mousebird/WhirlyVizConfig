@@ -127,7 +127,7 @@ wviz.settings = {
         "lat": 37.787,
         "height": 0.0012
     },
-    "info url": "http://mousebird.github.io/WhirlyVizConfig/config_1_2/electionmap1980_2008.html",
+    "info url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.html",
 };
 
 // Let the startup routine know we're happy
