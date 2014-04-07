@@ -229,7 +229,7 @@ wviz.settings = {
         "lat":40.02,
         "height":0.01
     },
-    "info url":""
+    "info url":"http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.html"
 };
 
 // Let the startup routine know we're happy
