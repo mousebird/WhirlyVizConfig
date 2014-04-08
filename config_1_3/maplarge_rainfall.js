@@ -138,7 +138,7 @@ wviz.settings = {
         "lat":39.7260,
         "height":0.5
     },
-    "info url":""
+    "info url":"http://mousebird.github.io/WhirlyVizConfig/config_1_3/maplarge_rainfall.html"
 };
 
 // Let the startup routine know we're happy
