@@ -37,11 +37,11 @@
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.js"
          },
-         {   "name": "MapLargeBank",
-             "display name": "Bank Deposits",
-             "description": "Bank Deposits by Distance",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.png",
-             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bank_script.js"
+         {   "name": "MapLargeRain",
+             "display name": "Rainfall",
+             "description": "Rainfall for a week in 2011",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/maplarge_rainfall.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/maplarge_rainfall.js"
          },
          {   "name": "BrazilSaoPaulo",
              "display name": "Sao Paulo, Brazil",
