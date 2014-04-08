@@ -45,7 +45,7 @@
          },
          {   "name": "BrazilSaoPaulo",
              "display name": "Sao Paulo, Brazil",
-             "description": "A map of the Sau Paulo area in vectors.",
+             "description": "A map of the Sao Paulo area in vectors.",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo.png",
              "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo_web.json"
          }
