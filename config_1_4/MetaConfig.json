@@ -32,7 +32,7 @@
              "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/electionmap1980_2008.json"
          },
          {   "name": "BikeShares",
-             "display name": "SF BayArea BikeShare",
+             "display name": "City BikeShares",
              "description": "Live Bike Share Availability For Several Cities",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/all_bike.png",
              "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/all_bike.js"
