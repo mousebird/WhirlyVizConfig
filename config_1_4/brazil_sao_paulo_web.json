@@ -1,0 +1,40 @@
+{
+    "settings" :
+    {
+        "map type": "map3d",
+        "extents": {
+            "minlon": -47.5,
+            "minlat": -24.5,
+            "maxlon": -45.5,
+            "maxlat": -22.75,
+            "minheight": 0.00003,
+            "maxheight": 0.5
+        },
+        "start": {
+            "lon": -46.633,
+            "lat": -23.55,
+            "rot": 0.0,
+            "height": 0.02
+        }
+    },
+    "background": [
+        {
+            "type": "color",
+            "color": "#555555FF"
+        },
+        {
+            "type": "maplyvector",
+            "url": "http://tilesets.s3-website-us-east-1.amazonaws.com/brazil_sau_paolo/brazil_sau_paolo_web.json"
+        }
+    ],
+    "styles": [
+    ],
+    "controls": [
+    ],
+    "queries": [
+    ],
+    "query layers": [
+    ],
+    "events": [
+    ]
+}
