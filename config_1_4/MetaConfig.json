@@ -4,50 +4,50 @@
          {   "name": "GeoTrellisTransit",
              "display name": "GeoTrellis Transit",
              "description": "GeoTrellis Transit Example for Philadelphia",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.png",
-             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/geotrellis_transit.js"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/geotrellis_transit.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/geotrellis_transit.js"
          },
         {   "name": "unep",
             "display name": "United Nations Environment Programme Data Sets",
             "description": "A simplified view of several UNEP data sets related to countries.",
-            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/unep.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/unep.json"
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/unep.png",
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/unep.json"
         },
         {   "name": "plutomap2d",
             "display name": "Primary Land Use Tax Lot Output",
             "description": "PLUTO data for all five boroughs of New York.",
-            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/plutomap2d.png",
-            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/plutomap2d.json"
+            "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/plutomap2d.png",
+            "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/plutomap2d.json"
         },
          {   "name": "SFTransit",
              "display name": "San Francisco Transit Data",
              "description": "A data set covering a week of SF buses.",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/sftransit.png",
-             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/sftransit.json"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/sftransit.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/sftransit.json"
          },
          {   "name": "ElectionMap",
              "display name": "Presidential Elections",
              "description": "Presidential Election by County: 1980-2008",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/electionmap1980_2008.png",
-             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/electionmap1980_2008.json"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/electionmap1980_2008.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/electionmap1980_2008.json"
          },
-         {   "name": "BayAreaBikeShare",
+         {   "name": "BikeShares",
              "display name": "SF BayArea BikeShare",
-             "description": "Live Bay Area Bike Share Availability",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.png",
-             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/bay_bike_simple.js"
+             "description": "Live Bike Share Availability For Several Cities",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/all_bike.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/all_bike.js"
          },
          {   "name": "MapLargeRain",
              "display name": "Rainfall",
              "description": "Rainfall for a week in 2011",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/maplarge_rainfall.png",
-             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/maplarge_rainfall.js"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/maplarge_rainfall.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/maplarge_rainfall.js"
          },
          {   "name": "BrazilSaoPaulo",
              "display name": "Sao Paulo, Brazil",
              "description": "A map of the Sao Paulo area in vectors.",
-             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo.png",
-             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_3/brazil_sao_paulo_web.json"
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/brazil_sao_paulo.png",
+             "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/brazil_sao_paulo_web.json"
          }
     ]
 }
