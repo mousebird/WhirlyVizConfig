@@ -23,6 +23,7 @@ wviz.events.onStartup = function()
            tileJson: "http://a.tiles.mapbox.com/v3/mousebird.hif7i06e.json",
            minZoom: 0,
            maxZoom: 10,
+                                       drawPriority: 0
         });
     
     // African farmland layer
@@ -30,7 +31,8 @@ wviz.events.onStartup = function()
        {
            tileJson: "https://a.tiles.mapbox.com/v3/geostatistics-visual.i0l5jd7f.json",
            minZoom: 3,
-           maxZoom: 6
+           maxZoom: 6,
+                                       drawPriority: 1
        });
     
     // Call the config routine to set defaults
