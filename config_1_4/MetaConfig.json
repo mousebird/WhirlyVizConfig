@@ -48,6 +48,12 @@
              "description": "A map of the Sao Paulo area in vectors.",
              "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/brazil_sao_paulo.png",
              "config url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/brazil_sao_paulo_web.json"
+         },
+         {   "name": "BabsChallenge",
+             "display name": "Bay Area Bike Share Stats",
+             "description": "SF Bay Area Bike Share Data",
+             "picture url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/bay_bike_challenge.png",
+             "config script": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/bay_bike_challenge.js"
          }
     ]
 }
