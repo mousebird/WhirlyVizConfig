@@ -49,7 +49,7 @@ wviz.settings = {
         "lon":48,
         "lat":-30,
         "height":1.5,
-        "northUp": true
+        "northup": true
     },
     "info url":""
 };
