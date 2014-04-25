@@ -37,11 +37,24 @@ wviz.events.onSelect = function(lon,lat)
             middle += "<br><b style=\"color:#6FCBF5\">" + wviz.env.availBikes + " bikes available</b>";
         break;
         case "history":
-            value = 0.0;
-            if (wviz.env.count != undefined)
-                value = wviz.env.count;
-            if (value > 0.0)
-                middle += "<br><b style=\"color:#6FCBF5\">" + (value/TotalDays).toFixed(2) + " minutes per day</b>";
+            if (historyMode == "empty" || historyMode == "full")
+            {
+                value = 0.0;
+                if (wviz.env.count != undefined)
+                    value = wviz.env.count;
+                denom = TotalDays;
+                switch (wviz.env.dateType)
+                {
+                    case "Weekday":
+                        denom = TotalDays/7.0 * 5.0;
+                        break;
+                    case "Weekend":
+                        denom = TotalDays/7.0 * 2.0;
+                        break;
+                }
+                if (value > 0.0)
+                    middle += "<br><b style=\"color:#6FCBF5\">" + (value/denom).toFixed(2) + " minutes per day</b>";
+            }
         break;
     }
     msg = "<html><body style=\"color:white;font-size:18;text-align:center;\">" + middle + "</body></html>";
@@ -407,7 +420,7 @@ var RunHistoricalTripQuery = function()
     else
         query = firstPart + " " + secondPart;
     
-    console.log("query = " + query);
+//    console.log("query = " + query);
     
     wviz.networkFetch(MakeServerQuery(query),
           function(retData)
@@ -548,6 +561,7 @@ wviz.events.onConfig = function()
             curMode = "live";
             historyMode = null;
             wviz.setTitle("Live Station Data");
+            wviz.setLegend("<html><body style=\"background-color=black;font-size:16;color:white;text-align:center;\"> <b>Bikes</b> <b style=\"color:#83D9FD\">available </b> <b>and slots</b> <b style=\"color:#F48380\">empty</b> <b>right now.</b></body></html>","#000000AA");
             break;
         case "Popular Trips":
             curMode = "history";
@@ -557,12 +571,12 @@ wviz.events.onConfig = function()
         case "Empty Stations":
             curMode = "history";
             historyMode = "empty";
-            wviz.setTitle("Stations most likely to empty");
+            wviz.setTitle("Empty Stations");
             break;
         case "Full Stations":
             curMode = "history";
             historyMode = "full";
-            wviz.setTitle("Stations most likely to fill");
+            wviz.setTitle("Full Stations");
             break;
     }
     
@@ -637,12 +651,128 @@ wviz.events.onConfig = function()
             {
                 case "trips":
                     RunHistoricalTripQuery();
+                    var msg = "";
+                    
+                    switch (wviz.env.subscriberType)
+                    {
+                        case "All":
+                            msg += "By everyone";
+                        break;
+                        case "Subscriber":
+                            msg += "By subscribers";
+                        break;
+                        case "Customer":
+                            msg += "By casual users";
+                        break;
+                    }
+                    switch (wviz.env.dateType)
+                    {
+                        case "Weekday":
+                            msg += " on weekdays";
+                            break;
+                        case "Weekend":
+                            msg += " on the weekend";
+                            break;
+                    }
+                    if (wviz.env.timeType != "All")
+                    {
+                        if (msg.length > 0)
+                            msg += " in the ";
+                        else
+                            msg += "In the ";
+                        switch (wviz.env.timeType)
+                        {
+                            case "Morning":
+                                msg += "morning";
+                                break;
+                            case "Afternoon":
+                                msg += "afternoon";
+                                break;
+                            case "Evening":
+                                msg += "evening";
+                                break;
+                        }
+                    }
+                    if (msg.length == 0)
+                        msg = "Overall";
+                    msg += ".";
+                    wviz.setLegend("<html><body style=\"background-color=black;font-size:16;color:white;text-align:center;\"><b>" + msg + "</b></body></html>","#000000AA");
                 break;
                 case "empty":
                     RunStationCapacityQuery("bikes_available",true);
+                    var msg = "Likely to be <b style=\"color:#F48380\">empty</b>";
+                    
+                    switch (wviz.env.dateType)
+                    {
+                        case "Weekday":
+                            msg += " on weekdays";
+                            break;
+                        case "Weekend":
+                            msg += " on the weekend";
+                            break;
+                    }
+                    if (wviz.env.timeType != "All")
+                    {
+                        if (msg.length > 0)
+                            msg += " in the ";
+                        else
+                            msg += "In the ";
+                        switch (wviz.env.timeType)
+                        {
+                            case "Morning":
+                                msg += "morning";
+                                break;
+                            case "Afternoon":
+                                msg += "afternoon";
+                                break;
+                            case "Evening":
+                                msg += "evening";
+                                break;
+                        }
+                    }
+                    if (msg.length == 0)
+                        msg = "Overall";
+                    msg += ".";
+                    wviz.setLegend("<html><body style=\"background-color=black;font-size:16;color:white;text-align:center;\"><b>" + msg + "</b></body></html>","#000000AA");
+
                     break;
                 case "full":
                     RunStationCapacityQuery("docks_available",false);
+
+                    var msg = "Likely to be <b style=\"color:#83D9FD\">full</b>";
+                    
+                    switch (wviz.env.dateType)
+                {
+                    case "Weekday":
+                        msg += " on weekdays";
+                        break;
+                    case "Weekend":
+                        msg += " on the weekend";
+                        break;
+                }
+                    if (wviz.env.timeType != "All")
+                    {
+                        if (msg.length > 0)
+                            msg += " in the ";
+                        else
+                            msg += "In the ";
+                        switch (wviz.env.timeType)
+                        {
+                            case "Morning":
+                                msg += "morning";
+                                break;
+                            case "Afternoon":
+                                msg += "afternoon";
+                                break;
+                            case "Evening":
+                                msg += "evening";
+                                break;
+                        }
+                    }
+                    if (msg.length == 0)
+                        msg = "Overall";
+                    msg += ".";
+                    wviz.setLegend("<html><body style=\"background-color=black;font-size:16;color:white;text-align:center;\"><b>" + msg + "</b></body></html>","#000000AA");
                     break;
             }
             break;
@@ -669,7 +799,7 @@ wviz.settings = {
         "mintilt": 1.21771169,
         "maxtilt": 0.0
     },
-    "info url": "",
+    "info url": "http://mousebird.github.io/WhirlyVizConfig/config_1_4/bay_bike_challenge.html",
 };
 
 // Let the startup routine know we're happy
