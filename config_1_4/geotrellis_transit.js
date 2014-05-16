@@ -1,4 +1,4 @@
-// Polluting the global name space with spherical mercator extents
+ // Polluting the global name space with spherical mercator extents
 var xMin = -20037508.34;
 var yMin = -20037508.34;
 var xMax = 20037508.34;
