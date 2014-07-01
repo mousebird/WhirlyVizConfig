@@ -55,7 +55,7 @@ var resetTransLayer = function()
                                         coordSys: "EPSG:3857",
                                         minZoom: 10,
                                         maxZoom: 20,
-                                        drawPriority: 100,
+                                        drawPriority: 1000,
                                         alpha: 0.75,
                                         tileURLFunc: tileurl
                                         });
