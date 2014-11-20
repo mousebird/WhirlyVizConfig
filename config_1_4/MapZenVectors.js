@@ -23,7 +23,7 @@ var queryChanged = function()
     var config = "";
     switch (wviz.env.mapType)
     {
-        case "MapZen Streets":
+        case "Mapzen Streets":
             tileJson = "http://mousebird.github.io/WhirlyVizConfig/config_1_4/mapzen-streets.json";
             config = "https://raw.githubusercontent.com/trailbehind/tm2-projects/master/topomap.tm2/project.xml";
             wviz.setTitle("Mapzen Streets");
@@ -36,7 +36,8 @@ var queryChanged = function()
                               "tileJson": tileJson,
                               "config": config,
                               minZoom: 0,
-                              maxZoom: 14
+                              maxZoom: 14,
+                                          connections: 4
                               }
                               );
 }
@@ -59,7 +60,7 @@ wviz.events.onStartup = function()
                     "default": "Mapzen Streets",
                     "initial index": 0,
                     "values":[
-                              "MapBox Streets",
+                              "Mapzen Streets",
                               ],
                     changeFunc: queryChanged
                     });

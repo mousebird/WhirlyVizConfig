@@ -561,7 +561,7 @@ wviz.events.onConfig = function()
             curMode = "live";
             historyMode = null;
             wviz.setTitle("Live Station Data");
-            wviz.setLegend("<html><body style=\"background-color=black;font-size:16;color:white;text-align:center;\"> <b>Bikes</b> <b style=\"color:#83D9FD\">available </b> <b>and slots</b> <b style=\"color:#F48380\">empty</b> <b>right now.</b></body></html>","#000000AA");
+            wviz.setLegend("<html><body style=\"background-color:black;font-size:16;color:white;text-align:center;\"> <b>Bikes</b> <b style=\"color:#83D9FD\">available </b> <b>and slots</b> <b style=\"color:#F48380\">empty</b> <b>right now.</b></body></html>","#000000AA");
             break;
         case "Popular Trips":
             curMode = "history";
